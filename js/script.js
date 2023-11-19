@@ -32,6 +32,17 @@ const getWord = async function () {
   }
 };
 
+<script>
+$.ajax({
+  method: "POST",
+  url: "wrap.php",
+  data: { text: $("p.unbroken").text() }
+})
+  .done(function( response ) {
+    $("p.broken").html(response);
+  });
+</script>
+
 // Display our symbols as placeholders for the chosen word's letters
 const placeholder = function (word) {
   // Focus on letter input
